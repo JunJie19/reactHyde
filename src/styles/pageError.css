@@ -1,0 +1,21 @@
+.pageError{
+    text-align: center;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    background-color: lightgrey;
+    height: 50vh;
+    margin-bottom: 10px;
+}
+
+.pageError h1{
+    padding-top: 50px;
+    font-size: 5rem;
+}
+
+.pageErrorMsg{
+    font-size: 2rem;
+    margin-top: 5px;
+}

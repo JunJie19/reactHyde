@@ -1,0 +1,132 @@
+.loginbox {
+  background-color: #eee;
+  width: 100%;
+  height: 70vh;
+}
+
+.loginContainer {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.loginForm {
+  flex: 0.5;
+  height: 70vh;
+  width: 100%;
+}
+
+.loginImg {
+  flex: 0.5;
+  height: 70vh;
+  width: 100%;
+}
+
+.loginForm h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding-top: 10px;
+}
+
+.loginForm h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.loginForm form {
+  padding-top: 50px;
+  padding-right: 20px;
+}
+
+.loginForm label {
+  margin: 0.5rem 0px;
+  color: #666;
+}
+
+.loginForm input {
+  color: #666;
+  border: 2px solid #1b2b9c;
+  font-size: 1rem;
+  box-sizing: border-box;
+  height: 45px;
+  border-radius: 0.25rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
+}
+
+.loginBtn {
+  background: #00216d;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 0 0.4rem rgb(0 0 0 / 50%);
+  text-align: center;
+  vertical-align: middle;
+  width: 80%;
+  height: 2.7rem;
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 750px){
+  .loginContainer{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+  }
+
+  .loginForm{
+    height: 30vh;
+  }
+
+  .loginImg{
+    height: 35vh;
+  }
+
+  .loginForm form{
+    padding: 0;
+    font-size: 10px;
+  }
+
+  .loginForm h2{
+    margin-top: -3%;
+    font-size: 1rem;
+  }
+
+  .loginForm h4{
+    font-size: 12px;
+  }
+
+  .loginForm input {
+    color: #666;
+    border: 2px solid #1b2b9c;
+    font-size: 10px;
+    box-sizing: border-box;
+    height: 20px;
+    border-radius: 0.25rem;
+    width: 50%;
+    margin-bottom: 0.2rem;
+  }
+  
+  .loginBtn {
+    background: #00216d;
+    color: #fff;
+    padding: 4px 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 10px;
+    box-shadow: 0 0 0.4rem rgb(0 0 0 / 50%);
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+    height: 20px;
+  }
+
+}
+
