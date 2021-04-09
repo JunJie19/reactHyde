@@ -1,0 +1,181 @@
+/* admin css */
+.adminContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f7fd;
+}
+
+.hidden {
+  width: 0px;
+  z-index: 1;
+  overflow-x: hidden;
+  padding-top: 5px;
+  text-align: center;
+  flex: 0.05;
+  transition: all 0.6s;
+  background-color: white;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.sideBar {
+  z-index: 1;
+  overflow-x: hidden;
+  padding-top: 5px;
+  transition: all 0.6s;
+  flex: 0.2;
+  width: 100%;
+  background-color: white;
+  text-align: right;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.sideBar li {
+  text-align: left !important;
+  list-style: none;
+  margin-top: 20px;
+  line-height: 2rem;
+  border-bottom: 3px solid grey;
+  color: #999;
+}
+
+.collapseIcon li {
+  list-style: none;
+  line-height: 2rem;
+  margin-top: 20px;
+  color: #999;
+}
+
+.dashboard {
+  flex: 0.8;
+  width: 100%;
+  background-color: #f4f7fd;
+}
+
+.fulldashboard {
+  flex: 0.95;
+  width: 100%;
+  background-color: #f4f7fd;
+}
+
+/* expert management */
+.globalSearch {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.globalSearch input {
+  margin-right: 10%;
+  height: 40px;
+  max-width: 25%;
+  width: 100%;
+  border: 2px solid #1b2b9c;
+}
+
+.globalSearch button {
+  border: 1px solid black;
+  background: #00216d;
+  height: 30px;
+  width: 10%;
+  color: white;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 20% 20% 10%;
+  text-align: center;
+}
+
+/* expert css */
+.expertContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #f4f7fd;
+}
+
+.userProfile {
+  display: flex;
+  flex: 0.8;
+  width: 100%;
+  background-color: #f4f7fd;
+}
+
+.fulluserProfile {
+  display: flex;
+  flex: 0.95;
+  width: 100%;
+  background-color: #f4f7fd;
+}
+
+.profileForm {
+  flex: 0.7;
+  width: 100%;
+  height: 100%;
+}
+
+.profile {
+  flex: 0.3;
+  width: 100%;
+  height: 100%;
+}
+
+.userimg{
+  margin-top: 15px;
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+}
+
+.userimg button {
+  font-size: 1rem;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #00216d;
+  height: 40px;
+  width: 30%;
+  color: white;
+}
+
+
+@media only screen and (max-width: 650px) {
+  .sideBar {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+  }
+
+  .hidden {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+  }
+
+  .dashboard {
+    flex: 1;
+  }
+
+  .fulldashboard {
+    flex: 1;
+  }
+
+  .collapseIcon {
+    padding: 10px;
+    height: 8vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+  }
+}

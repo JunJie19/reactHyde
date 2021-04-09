@@ -1,0 +1,23 @@
+.form-control{
+    border: 2px solid #1b2b9c !important;
+    font-size: 1rem;
+    box-sizing: border-box;
+    height: auto;
+    border-radius: .25rem;
+}
+
+.apply-btn{
+    display: inline-block;
+    background: #00216d;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 0 0.4rem rgb(0 0 0 / 50%);
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    max-width: 150px;
+    height: 2.7rem;
+    margin: 1rem 0;
+}

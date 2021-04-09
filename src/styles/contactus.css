@@ -13,12 +13,26 @@ body {
 }
 
 .formInfo {
+  width: 90%;
+  margin-bottom: 10px !important;
+  border: 2px solid #1b2b9c;
+  font-size: 1rem;
+  box-sizing: border-box;
+  height: 50px;
+  border-radius: 0.25rem;
+}
+
+.formContent {
   width: 400px;
   margin-bottom: 10px !important;
 }
 
-.formContent {
-    width: 400px;
-    margin-bottom: 10px !important;
+.sendBtn{
+  width: 20%;
+  height: 40px;
+  background-color: #00216d;
+  color: #fff;
+  border: 0;
+  font-weight: 600;
+  text-align: center;
 }
-
