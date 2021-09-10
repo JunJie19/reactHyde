@@ -70,7 +70,7 @@ function JobCategory() {
         })
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/category/${jobCategory}`).then((response) => {
+        axios.get(`https://hitalentsapp.herokuapp.com/category/${jobCategory}`).then((response) => {
             if (response) {
                 setjobList(response.data.data)
             }

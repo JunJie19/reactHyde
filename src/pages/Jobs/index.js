@@ -77,7 +77,7 @@ function JobPage() {
         })
 
     useEffect(() => {
-        axios.get('http://localhost:3001/hyde_international/jobList').then((response) => {
+        axios.get('https://hitalentsapp.herokuapp.com/hyde_international/jobList').then((response) => {
             if (response) {
                 setjobList(response.data.data)
             }

@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import '../../styles/jobs.css'
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser'
+import ReactHtmlParser from 'react-html-parser'
 
 function ApplyJob() {
     const history = useHistory()
@@ -20,7 +20,7 @@ function ApplyJob() {
     }, [])
 
     const jobApply = (jobId) => {
-        axios.post(`http://localhost:3001/hyde_international/applyJob/${jobId}`).then((response) => {
+        axios.post(`https://hitalentsapp.herokuapp.com/hyde_international/applyJob/${jobId}`).then((response) => {
             if (response) {
                 alert(response.data.msg)
                 if (response.data.incomplete === true) {
