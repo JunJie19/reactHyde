@@ -48,7 +48,7 @@ function JobCategory() {
     })
         .slice(pageVisited, pageVisited + userPerPage).map((val, index) => {
             return <>
-                <Link to={`/hyde_international/jobList/${val.project_id}`}>
+                <Link to={`https://hitalentsapp.herokuapp.com/hyde_international/jobList/${val.project_id}`}>
                     <div className='jobCard' key={index} >
                         <header className='jobCardHeader'><h5 className='jobTitle'><BusinessCenterIcon />{val.job_title}</h5></header>
                         <div className='jobColDetials'><Row><Col><label>Salary</label>
