@@ -36,7 +36,7 @@ function App() {
   // const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
 
   useEffect(() => {
-    axiosInstance.get('hyde_international/login').then((response) => {
+    axios.get('hyde_international/login').then((response) => {
       console.log(response)
       if (response.data.loggedIn === true) {
         setloginStatus(!loginStatus)
