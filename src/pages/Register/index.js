@@ -10,7 +10,6 @@ import { registerSchema } from '../../components/validationSchema'
 import { Col, Row } from 'react-bootstrap'
 import Axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { response } from 'express'
 
 function Register() {
     var history = useHistory()
@@ -21,11 +20,16 @@ function Register() {
     });
 
     const onSubmit = () => {
-        Axios.post('http://localhost:3001/hyde_international/signup', {
+        Axios.post('https://hitalentsapp.herokuapp.com/hyde_international/signup', {
             firstName: fName, lastName: lName, email: email, password: password, Cpassword: Cpassword, phoneNo: phoneNo
-        }).then(() => {
-            alert('successfully registered!')
-            history.push('/mgt/expert_profile')
+        }).then((response) => {
+            if (response) {
+                alert('successfully registered!')
+                history.push('/login')
+            }
+
+        }).catch((err) => {
+            alert('Email has already existed.')
         })
     }
 

@@ -26,6 +26,161 @@
   color: navy;
 }
 
-.jobSearch{
-    width: 60%;
+.jobSearch {
+  width: 60%;
+}
+
+.filterBox {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-bottom: 1.5rem;
+}
+
+/* Slider */
+.slider{
+  width: 100%;
+  height: 50px;
+}
+
+/* job card list page */
+
+.jobContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-gap: 1%;
+  height: 100%;
+  margin-bottom: 2rem;
+}
+
+.jobCard {
+  padding: 20px;
+  width: 100%;
+  min-height: 250px;
+  box-shadow: 0 0 0.4rem rgb(0 0 0 / 50%);
+  background-color: #fafafa;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.jobCard:hover {
+  color: blue;
+}
+
+.jobCardHeader {
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.jobColDetials {
+  margin-bottom: 2.5rem;
+}
+
+.jobTitle {
+  text-align: left;
+}
+
+/* Job Apply Page */
+.jobApplyimg_section {
+  background-image: url(../img/banner.jpg);
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-position: 50%;
+  min-height: 40vh;
+}
+
+.applyJob_container {
+  padding: 1% 10%;
+  width: 65%;
+  min-height: 100vh;
+}
+
+.job-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #000;
+}
+
+.salary {
+  padding-right: 15px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.status {
+  flex: 0.8;
+}
+
+.job_Content {
+  margin-top: 0.6rem;
+}
+
+.para_width .orga_info {
+  max-width: 650px;
+  white-space: pre-wrap;
+  text-align: justify;
+}
+
+.orga_info {
+  font-size: 1.2rem;
+}
+
+.apply_btn {
+  display: inline-block;
+  background: #00216d;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 0 0.4rem rgb(0 0 0 / 50%);
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  max-width: 150px;
+  height: 2.7rem;
+  margin: 1rem 0;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1150px) {
+  .jobContainer {
+    grid-template-columns: 30% 30% 30%;
+    justify-content: center;
+  }
+
+  .jobCard {
+    min-height: 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .jobContainer {
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+    grid-gap: 2%;
+  }
+
+  .jobCard {
+    min-height: 200px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .jobContainer {
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+
+  .jobCard {
+    min-height: 200px;
+  }
 }

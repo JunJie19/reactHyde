@@ -17,8 +17,10 @@ export default function ContactUs() {
     })
 
     const onSubmit = () => {
-        Axios.post('http://localhost:3001/hyde_international/contactus', { firstName: fName, lastName: lName, email: email, subject: subject, message: message }).then(() => {
+        Axios.post('https://hitalentsapp.herokuapp.com/hyde_international/contactus', { firstName: fName, lastName: lName, email: email, subject: subject, message: message }).then((response) => {
             alert('Message sent')
+        }).catch((err) => {
+            alert('Failed to send.')
         })
     }
 

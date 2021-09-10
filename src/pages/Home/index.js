@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import '../../styles/home.css'
@@ -22,13 +22,52 @@ import dataScienceImg from '../../img/data science.svg';
 import businessManagementImg from '../../img/business management.svg';
 import aiImg from '../../img/ai.svg';
 import Footer from '../../components/Footer';
+import axios from 'axios';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+import { Link } from 'react-router-dom'
 
-function index() {
+function Home() {
+    const [jobList, setjobList] = useState([])
+    const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
+
+    useEffect(() => {
+        axiosInstance.get('hyde_international/jobList').then((response) => {
+            if (response) {
+                setjobList(response.data.data)
+            }
+        })
+    }, [])
+
+
+    const jobCard = jobList.slice(0, 4).map((val, index) => {
+        return <>
+            <Link to={`/hyde_international/jobList/${val.project_id}`}>
+                <div className='jobCard' key={index} >
+                    <header className='jobCardHeader'><h5 className='jobTitle'><BusinessCenterIcon />{val.job_title}</h5></header>
+                    <div className='jobColDetials'><Row><Col><label>Salary</label>
+                        <br />
+                        {val.salary}</Col>
+                        <Col><label>Job Type</label>
+                            <br />
+                            {val.job_type}</Col></Row></div>
+
+                    <div className='jobColDetials'><Row><Col><label>Start Date</label>
+                        <br />
+                        {val.start_date}</Col>
+                        <Col><label>Close Date</label>
+                            <br />
+                            {val.close_date}</Col></Row></div>
+                </div>
+            </Link>
+        </>
+    })
+
+
+
     return (
         <Fragment>
             {/* Hero content */}
             <div className='hero-content'>
-
                 <div className='hero_slogan'>
                     <h1>Unlock Potential</h1>
                     <h5>WITH THE FREE FLOW OF KNOWLEDGE SHARING</h5>
@@ -78,44 +117,11 @@ function index() {
             </div>
 
             {/* Featured Job  */}
-            <div className='job_Container'>
-                <h1>Featured Jobs</h1>
-                <Grid container spacing={3} alignItems='center' justify='center'
-                    style={{ width: '100%', margin: '0px' }} >
-                    <Grid item xs={12} sm={6} lg={3}  >
-                        <Paper className='jobsCard'>
-                            <header className='jobHeader'>Marketing</header>
-                            <div className='jobBox'>
-                                <div className='jobInfo'>
-                                    <ul>
-                                        <li>Salary</li>
-                                        <li>8000</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>job type</li>
-                                        <li>contract</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>start date</li>
-                                        <li>01/10/1997</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <li>end date</li>
-                                        <li>10/10/1997</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </Paper>
-                    </Grid>
-                </Grid>
-                <div className="moreInfo">View More <ArrowForwardIcon /></div>
+            <div className='home_jobContainer'>
+                {jobCard}
             </div>
+            <br />
+            <div className="moreInfo"><Link to='/jobs' style={{ color: 'black', textDecoration: 'none' }}>View More <ArrowForwardIcon /></Link></div>
 
             {/* why us */}
             <div className='whyUs_Container'>
@@ -135,87 +141,88 @@ function index() {
                     style={{ width: '100%', margin: '0px' }} >
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={urbanPlanningImg} width='100%' height='100px' />
-                            <hr />
-                        Urban Planning
-                    </Paper>
+                            <Link to={`category/Urban-Planning`}>  <LazyLoadImage src={urbanPlanningImg} width='100%' height='100px' />
+                                <hr />
+                        Urban Planning</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={medicalScienceImg} width='100%' height='100px' />
-                            <hr />
-                        Medical Science
-                    </Paper>
+                            <Link to={`category/Medical-Science`}> <LazyLoadImage src={medicalScienceImg} width='100%' height='100px' />
+                                <hr />
+                        Medical Science</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={envinromentalSienceImg} width='100%' height='100px' />
-                            <hr />
-                        Envinronmental Science
-                    </Paper>
+                            <Link to={`category/Environmental-Science`}> <LazyLoadImage src={envinromentalSienceImg} width='100%' height='100px' />
+                                <hr />
+                        Envinronmental Science</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={materialScienceImg} width='100%' height='100px' />
-                            <hr />
-                       Material Science
-                    </Paper>
+                            <Link to={`category/Material-Science`}><LazyLoadImage src={materialScienceImg} width='100%' height='100px' />
+                                <hr />
+                       Material Science</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={renewableEnergyImg} width='100%' height='100px' />
-                            <hr />
-                        Renewable Energy
-                    </Paper>
+                            <Link to={`category/Renewable-Energy`}> <LazyLoadImage src={renewableEnergyImg} width='100%' height='100px' />
+                                <hr />
+                        Renewable Energy</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={marineEngineerImg} width='100%' height='100px' />
-                            <hr />
-                        Marine Engineering
-                    </Paper>
+                            <Link to={`category/Marine-Engineering`} ><LazyLoadImage src={marineEngineerImg} width='100%' height='100px' />
+                                <hr />
+                        Marine Engineering</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={chemistryImg} width='100%' height='100px' />
-                            <hr />
-                        Chemistry
-                    </Paper>
+                            <Link to={`category/Chemistry`}><LazyLoadImage src={chemistryImg} width='100%' height='100px' />
+                                <hr />
+                        Chemistry</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={engineeringManufacturingImg} width='100%' height='100px' />
-                            <hr />
-                        Engineering & Manufacturing
-                    </Paper>
+                            <Link to={`category/Engineer & Manufacturing`}> <LazyLoadImage src={engineeringManufacturingImg} width='100%' height='100px' />
+                                <hr />
+                        Engineering & Manufacturing</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={informationTechnologyImg} width='100%' height='100px' />
-                            <hr />
-                        Information Technology
-                    </Paper>
+                            <Link to={`category/Information-Technology`}><LazyLoadImage src={informationTechnologyImg} width='100%' height='100px' />
+                                <hr />
+                        Information Technology</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={dataScienceImg} width='100%' height='100px' />
-                            <hr />
+                            <Link to={`category/Data-Science`}><LazyLoadImage src={dataScienceImg} width='100%' height='100px' />
+                                <hr />
                         Data Science
-                    </Paper>
+                        </Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={businessManagementImg} width='100%' height='100px' />
-                            <hr />
-                        Business & Management
-                    </Paper>
+                            <Link to={`category/Business-Management`}> <LazyLoadImage src={businessManagementImg} width='100%' height='100px' />
+                                <hr />
+                        Business & Management</Link>
+                        </Paper>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={4}  >
                         <Paper className='industryCard'>
-                            <LazyLoadImage src={aiImg} width='100%' height='100px' />
-                            <hr />
-                        Artificial & Robotics
-                    </Paper>
+                            <Link to={`category/Artificial & Robotics`}> <LazyLoadImage src={aiImg} width='100%' height='100px' />
+                                <hr />
+                        Artificial & Robotics</Link>
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>
@@ -226,5 +233,5 @@ function index() {
     )
 }
 
-export default index
+export default Home
 
