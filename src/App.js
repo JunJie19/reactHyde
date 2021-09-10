@@ -36,7 +36,7 @@ function App() {
   // const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
 
   useEffect(() => {
-    axios.get('hyde_international/login').then((response) => {
+    axios.get('https://hitalentsapp.herokuapp.com/hyde_international/login').then((response) => {
       console.log(response)
       if (response.data.loggedIn === true) {
         setloginStatus(!loginStatus)
