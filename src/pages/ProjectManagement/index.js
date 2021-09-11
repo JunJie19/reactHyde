@@ -51,7 +51,7 @@ function ProjectManagement() {
 
     //fetching project data
     useEffect(() => {
-        axios.get('http://localhost:3001/hyde_international/fetchProjectData').then((response) => {
+        axios.get('https://hitalentsapp.herokuapp.com/hyde_international/fetchProjectData').then((response) => {
             if (response) {
                 // console.log(response.data.data)
                 setprojectData(response.data.data)
@@ -71,7 +71,7 @@ function ProjectManagement() {
     //save project data info
     const handleSave = (id) => {
         //axios update
-        axios.put('http://localhost:3001/hyde_international/editProject', { project_id: id, job_title: jobTitle, job_type: jobType, employer: employer, show_employer: showEmployer, location: location, distance: Distance, currency: currency, salary: salary, start_date: startDate, close_date: endDate, organization_info: organizationInfo, professional_field: professionalField, job_description: jobDescription, required_expertise: requiredExpertise, responsibility: responsibility, essential_skills: essentialSkills })
+        axios.put('https://hitalentsapp.herokuapp.com/hyde_international/editProject', { project_id: id, job_title: jobTitle, job_type: jobType, employer: employer, show_employer: showEmployer, location: location, distance: Distance, currency: currency, salary: salary, start_date: startDate, close_date: endDate, organization_info: organizationInfo, professional_field: professionalField, job_description: jobDescription, required_expertise: requiredExpertise, responsibility: responsibility, essential_skills: essentialSkills })
             .then((response) => {
                 if (response) {
                     alert("Save")
@@ -86,7 +86,7 @@ function ProjectManagement() {
         let Confirm = window.confirm("Are you sure to remove this data?")
         if (Confirm === true) {
             console.log(projectId)
-            axios.delete(`http://localhost:3001/hyde_international/deleteProject/${projectId}`, { project_id: projectId }).then((response) => {
+            axios.delete(`https://hitalentsapp.herokuapp.com/hyde_international/deleteProject/${projectId}`, { project_id: projectId }).then((response) => {
                 if (response) {
                     alert("Data removed.")
                     window.location.reload(false)
@@ -98,7 +98,7 @@ function ProjectManagement() {
     }
 
     const pdfGenerator = (projectID) => {
-        axios.get(`http://localhost:3001/hyde_international/download_Project/${projectID}`, { project_id: projectID }).then((response) => {
+        axios.get(`https://hitalentsapp.herokuapp.com/hyde_international/download_Project/${projectID}`, { project_id: projectID }).then((response) => {
             if (response) {
                 //firstly generate jspdf function
                 var pdfDoc = new jsPDF("p", 'pt', 'a4')

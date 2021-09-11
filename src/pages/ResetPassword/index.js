@@ -26,7 +26,7 @@ function ResetPassword() {
 
 
     const resetPassword = () => {
-        axios.post('http://localhost:3001/hyde_international/updatePassword', { email: email, password: password }).then((response) => {
+        axios.post('https://hitalentsapp.herokuapp.com/hyde_international/updatePassword', { email: email, password: password }).then((response) => {
             if (response) {
                 alert('You have update your password.')
                 if (response.data.succuess === 'true') {

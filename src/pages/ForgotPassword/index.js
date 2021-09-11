@@ -11,7 +11,7 @@ function ForgotPassword() {
     const [eMail, setEmail] = useState("")
 
     const forgetPassword = () => {
-        axios.post('http://localhost:3001/hyde_international/forgotPass', { email: eMail }).then((response) => {
+        axios.post('https://hitalentsapp.herokuapp.com/hyde_international/forgotPass', { email: eMail }).then((response) => {
             if (response) {
                 console.log(response)
                 alert(response.data)

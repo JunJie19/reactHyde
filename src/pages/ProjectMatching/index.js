@@ -15,7 +15,7 @@ import jsPDF from 'jspdf';
 function ProjectMacthing() {
 
     useEffect(() => {
-        axios.get('http://localhost:3001/hyde_international/fetchProjectMacthing').then((response) => {
+        axios.get('https://hitalentsapp.herokuapp.com/hyde_international/fetchProjectMacthing').then((response) => {
             if (response) {
                 setprojectMatchData(response.data.data)
             }
@@ -96,7 +96,7 @@ function ProjectMacthing() {
         let Confirm = window.confirm("Are you sure to remove this data?")
         if (Confirm === true) {
             console.log(projectId)
-            axios.delete(`http://localhost:3001/hyde_international/deleteProjectMacthing/${projectId}/${expertId}`, { project_id: projectId, expert_id: expertId }).then((response) => {
+            axios.delete(`https://hitalentsapp.herokuapp.com/hyde_international/deleteProjectMacthing/${projectId}/${expertId}`, { project_id: projectId, expert_id: expertId }).then((response) => {
                 if (response) {
                     alert("Data removed.")
                     window.location.reload(false)

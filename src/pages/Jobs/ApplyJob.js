@@ -12,7 +12,7 @@ function ApplyJob() {
     const [jobInfo, setjobInfo] = useState([])
 
     useEffect(() => {
-        axios.get(`${jobId}`).then((response) => {
+        axios.get(`https://hitalentsapp.herokuapp.com/hyde_international/jobList/${jobId}`).then((response) => {
             if (response) {
                 setjobInfo(response.data.data)
             }

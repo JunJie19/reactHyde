@@ -64,7 +64,7 @@ function ExpertProfile() {
 
     const handleSave = () => {
         //axios post
-        axios.put('http://localhost:3001/hyde_international/updateprofile', { nationality: nationality, phoneNo: phoneNo, linkedin: linkedIn, twitter: twitter, education: education, employment: emlpoyment, patents: patents, publications: publications, field_of_speciality: fieldOfSpeciality, awards: awards, scientific_contribution_and_research_leadership: scientificContribution, collaborative_project_proposal: collaborativeProject }).then((response) => {
+        axios.put('https://hitalentsapp.herokuapp.com/hyde_international/updateprofile', { nationality: nationality, phoneNo: phoneNo, linkedin: linkedIn, twitter: twitter, education: education, employment: emlpoyment, patents: patents, publications: publications, field_of_speciality: fieldOfSpeciality, awards: awards, scientific_contribution_and_research_leadership: scientificContribution, collaborative_project_proposal: collaborativeProject }).then((response) => {
             if (response) {
                 alert("Save")
                 setedit(false)
