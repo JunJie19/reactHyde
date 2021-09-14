@@ -33,10 +33,10 @@ function App() {
   axios.defaults.withCredentials = true;
   const [showLink, setshowLink] = useState(false)
   const [loginStatus, setloginStatus] = useState(false)
-  // const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
+  const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
 
   useEffect(() => {
-    axios.get('https://hitalentsapp.herokuapp.com/hyde_international/login').then((response) => {
+    axiosInstance.get('/login').then((response) => {
       console.log(response)
       if (response.data.loggedIn === true) {
         setloginStatus(!loginStatus)
@@ -46,7 +46,7 @@ function App() {
   }, [])
 
   const logOut = () => {
-    axios.get('https://hitalentsapp.herokuapp.com/hyde_international/logout').then((response) => {
+    axiosInstance.get('/logout').then((response) => {
       if (response) {
         alert('You have successfully logout!')
         localStorage.removeItem('Hyde.role')

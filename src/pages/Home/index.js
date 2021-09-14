@@ -28,10 +28,10 @@ import { Link } from 'react-router-dom'
 
 function Home() {
     const [jobList, setjobList] = useState([])
-    // const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
+    const axiosInstance = axios.create({ baseURL: process.env.REACT_APP_API_URL })
 
     useEffect(() => {
-        axios.get('https://hitalentsapp.herokuapp.com/hyde_international/jobList').then((response) => {
+        axiosInstance.get('/jobList').then((response) => {
             if (response) {
                 setjobList(response.data.data)
             }
